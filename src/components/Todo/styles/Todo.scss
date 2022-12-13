@@ -1,0 +1,144 @@
+html,
+body {
+  height: 100%;
+  overflow: hidden;
+}
+div#root {
+  height: 100%;
+}
+div.todo {
+  background-color: #2362cc;
+  display: grid;
+  place-content: center;
+  height: 100%;
+}
+// body {
+// }
+main {
+  background-color: aliceblue;
+  border-radius: 16px;
+  width: 500px;
+  height: 500px;
+  padding: 16px;
+}
+h1 {
+  margin: 0 0 8px 0;
+}
+#filter {
+  display: flex;
+  div {
+    display: flex;
+    flex: 1;
+    gap: 16px;
+  }
+  button {
+    background-color: #2362cc;
+    color: white;
+    padding: 6px 10px;
+  }
+}
+form {
+  text-align: center;
+  padding: 8px 0;
+  border-bottom: 1px solid #3d3d3d;
+  display: flex;
+  gap: 8px;
+  button {
+    background-color: #2362cc;
+    color: white;
+    transition: all 0.2s;
+  }
+  button:disabled,
+  button[disabled] {
+    background-color: #cccccc;
+    color: #666666;
+  }
+}
+button {
+  border-radius: 4px;
+  padding: 12px 20px;
+  cursor: pointer;
+  border: none;
+}
+input[type="checkbox"] {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+}
+input[type="text"] {
+  flex: 1;
+  padding: 12px 20px;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  outline: none;
+  transition: 0.5s;
+}
+input[type="text"]:focus {
+  border: 1px solid #2362cc;
+}
+div.todo ul {
+  padding: 0;
+  li {
+    list-style: none;
+    padding: 0;
+    padding-left: 20px;
+    display: flex;
+    align-items: center;
+    padding: 0;
+    gap: 8px;
+    font-size: 16px;
+    border-bottom: 1px solid #3d3d3d;
+    label {
+      flex: 1;
+      // margin: 8px;
+      position: relative;
+      cursor: pointer;
+    }
+    label.done {
+      color: #787575;
+    }
+    span {
+      display: inline-block;
+      width: 100%;
+      position: absolute;
+      left: 0;
+      top: 10px;
+      border-top: 2px solid #787575;
+      animation: wg 0.2s;
+    }
+    button {
+      padding: 6px 10px;
+      background-color: rgb(224, 66, 66);
+      color: azure;
+      opacity: 0;
+      transition: ease 0.3s;
+    }
+  }
+}
+li:hover button {
+  opacity: 1;
+}
+.list {
+  height: 340px;
+  overflow-y: auto;
+}
+.todo-item {
+  padding: 6px;
+}
+@keyframes wg {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+.underlined {
+  color: #2362cc;
+  text-decoration: underline;
+}
+#filter p:hover {
+  cursor: pointer;
+}
