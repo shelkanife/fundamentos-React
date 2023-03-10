@@ -1,25 +1,18 @@
 import { Link } from "react-router-dom";
+import "./landing.scss";
 const Landing = () => {
   return (
-    <main>
-      <ul>
-        <li>
-          Projecto
-          <ul>
-            <li>
-              <Link to="/todo">To Do App</Link>
-            </li>
-          </ul>
-        </li>
-        <li>
-          Tarea
-          <ul>
-            <li>
-              <Link to="/pokedex">Pok&eacute;dex</Link>
-            </li>
-          </ul>
-        </li>
-      </ul>
+    <main className="landing">
+      <div>
+        <p className="item-name"> Projecto</p>
+        <p className="item-link">
+          <Link to="/todo">To Do App</Link>
+        </p>
+        <p className="item-name">Tarea</p>
+        <p className="item-link">
+          <Link to="/pokedex">Pok&eacute;dex</Link>
+        </p>
+      </div>
     </main>
   );
 };
