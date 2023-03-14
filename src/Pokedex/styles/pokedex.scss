@@ -397,7 +397,7 @@ img {
 }
 @for $i from 1 through 10 {
   .g-btn:nth-child(#{$i}) {
-    animation-delay: var(--time);
+    animation-delay: calc(#{$i}s * 0.25);
   }
 }
 
