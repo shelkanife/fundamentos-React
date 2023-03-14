@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Landing from "./components/landing";
+import Landing from "./components/Landing";
 import Pokedex from "./Pokedex/Pokedex";
 import Todo from "./Todo/Todo";
 import "./index.css";

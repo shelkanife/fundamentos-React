@@ -1,4 +1,8 @@
-const Stats = ({ type, stats }) => {
+import React from "react";
+const Stats: React.FC<{
+  type: string[],
+  stats: number[],
+}> = ({ type, stats }) => {
   return (
     <div className="data-screen">
       <p>

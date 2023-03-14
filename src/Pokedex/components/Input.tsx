@@ -1,10 +1,16 @@
-import { useState } from "react";
+import { useState, Dispatch, SetStateAction, FormEvent } from "react";
+import { PokeInfo } from "../interfaces/pokedex";
 import { fetchPokemon } from "../services/fetchPokemon";
 import ButtonWithSound from "./ButtonWithSound";
 
-const Input = ({ setInfo, fetching, track, btnTrack }) => {
+const Input: React.FC<{
+  setInfo: Dispatch<SetStateAction<PokeInfo>>;
+  fetching: Dispatch<SetStateAction<boolean>>;
+  track: HTMLAudioElement;
+  btnTrack: HTMLAudioElement;
+}> = ({ setInfo, fetching, track, btnTrack }) => {
   const [pokemonName, setPokemonName] = useState("");
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     if (!pokemonName.length) {

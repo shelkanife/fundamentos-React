@@ -1,4 +1,8 @@
-const FetchIndicator = ({ fetching }) => {
+import React from "react";
+
+const FetchIndicator: React.FC<{
+  fetching: boolean,
+}> = ({ fetching }) => {
   return (
     <>
       <span className="circle" id="blue">

@@ -1,4 +1,8 @@
-const Screen = ({ src }) => {
+import React from "react";
+
+const Screen: React.FC<{
+  src: string,
+}> = ({ src }) => {
   return (
     <div className="screen">
       <div style={{ padding: ".2rem 0" }}>

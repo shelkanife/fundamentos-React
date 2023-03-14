@@ -1,4 +1,8 @@
-const ButtonWithSound = ({ id, track }) => {
+const ButtonWithSound: React.FC<{
+  type: string;
+  id: string;
+  track: HTMLAudioElement;
+}> = ({ id, track }) => {
   const handleClick = () => {
     track.play();
   };

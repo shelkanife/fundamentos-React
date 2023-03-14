@@ -8,16 +8,17 @@ import ButtonWithSound from "./components/ButtonWithSound";
 import fetchingTrack from "/bit.wav";
 import track from "/shot.wav";
 import "./styles/pokedex.scss";
+import { PokeInfo } from "./interfaces/pokedex";
 
 const Pokedex = () => {
-  const [info, setInfo] = useState({
-    src: null,
-    height: null,
-    weight: null,
+  const [info, setInfo] = useState<PokeInfo>({
+    src: "",
+    height: 0,
+    weight: 0,
     type: [],
     stats: [0, 0, 0, 0, 0, 0],
   });
-  const [fetching, setFetching] = useState(false);
+  const [fetching, setFetching] = useState<boolean>(false);
   const [fetchingAudio, setFetchingAudio] = useState(new Audio(fetchingTrack));
   const [btnTrack, setBtnTrack] = useState(new Audio(track));
   return (
@@ -47,13 +48,7 @@ const Pokedex = () => {
             <Stats type={info.type} stats={info.stats} />
             <div className="grid-buttons">
               {Array.from({ length: 10 }).map((e, i) => (
-                <div
-                  className="g-btn"
-                  key={i}
-                  style={{
-                    "--time": `${i / 4}s`,
-                  }}
-                ></div>
+                <div className="g-btn" key={i}></div>
               ))}
             </div>
             <div className="ligths-btns">
@@ -71,7 +66,11 @@ const Pokedex = () => {
             <div id="circles-squares-container">
               <div className="square"></div>
               <div className="square"></div>
-              <ButtonWithSound id="medium-circle" track={btnTrack} />
+              <ButtonWithSound
+                type="button"
+                id="medium-circle"
+                track={btnTrack}
+              />
             </div>
             <AditionalInfo height={info.height} weight={info.weight} />
           </div>
