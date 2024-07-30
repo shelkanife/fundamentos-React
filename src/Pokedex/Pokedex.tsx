@@ -5,10 +5,10 @@ import Input from "./components/Input";
 import Stats from "./components/Stats";
 import AditionalInfo from "./components/AditionalInfo";
 import ButtonWithSound from "./components/ButtonWithSound";
-import fetchingTrack from "/bit.wav";
+import { PokeInfo } from "./interfaces/PokeInfo";
 import track from "/shot.wav";
+import fetchingTrack from "/bit.wav";
 import "./styles/pokedex.scss";
-import { PokeInfo } from "./interfaces/pokedex";
 
 const Pokedex = () => {
   const [info, setInfo] = useState<PokeInfo>({

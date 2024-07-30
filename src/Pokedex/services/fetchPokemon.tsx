@@ -1,18 +1,23 @@
-import { PokeInfo } from "../interfaces/pokedex";
+import { PokeInfo } from "../interfaces/PokeInfo";
 
-// import fetch from 'node-fetch'
 export async function fetchPokemon(pokeName: string): Promise<PokeInfo> {
   const url: string = `https://pokeapi.co/api/v2/pokemon/${pokeName.toLowerCase()}`;
 
   return fetch(url)
     .then(async (response) => {
       if (response.status == 404) {
-        return null;
+        return {
+          src: "/static.gif",
+          height: 0,
+          weight: 0,
+          type: [],
+          stats: [0, 0, 0, 0, 0, 0],
+        };
       }
       return await response.json();
     })
     .then((response) => {
-      const info = {
+      const info: PokeInfo = {
         src: "/static.gif",
         height: 0,
         weight: 0,

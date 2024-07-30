@@ -1,5 +1,5 @@
 const ButtonWithSound: React.FC<{
-  type: string;
+  // type: string;
   id: string;
   track: HTMLAudioElement;
 }> = ({ id, track }) => {

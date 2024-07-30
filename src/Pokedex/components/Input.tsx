@@ -1,5 +1,5 @@
 import { useState, Dispatch, SetStateAction, FormEvent } from "react";
-import { PokeInfo } from "../interfaces/pokedex";
+import { PokeInfo } from "../interfaces/PokeInfo";
 import { fetchPokemon } from "../services/fetchPokemon";
 import ButtonWithSound from "./ButtonWithSound";
 
@@ -17,13 +17,15 @@ const Input: React.FC<{
       alert("Captura el nombre del pokemon a buscar!!!");
       return;
     }
-    fetching((prev) => !prev);
+    fetching(true);
     track.play();
     track.loop = true;
     const pokeInfo = await fetchPokemon(pokemonName);
-    if (pokeInfo.height === null) alert("Error, no existe ese pokémon");
+    if (pokeInfo.height === 0) {
+      alert("Error, no existe ese pokémon");
+    }
     setInfo({ ...pokeInfo });
-    fetching((prev) => !prev);
+    fetching(false);
     track.pause();
   };
   return (
@@ -42,11 +44,11 @@ const Input: React.FC<{
           autoComplete="off"
         />
         <div id="d-pad">
-          <ButtonWithSound type="button" id="bu" track={btnTrack} />
-          <ButtonWithSound type="button" id="br" track={btnTrack} />
-          <ButtonWithSound type="button" id="bd" track={btnTrack} />
-          <ButtonWithSound type="button" id="bl" track={btnTrack} />
-          <ButtonWithSound type="button" id="bc" track={btnTrack} />
+          <ButtonWithSound id="bu" track={btnTrack} />
+          <ButtonWithSound id="br" track={btnTrack} />
+          <ButtonWithSound id="bd" track={btnTrack} />
+          <ButtonWithSound id="bl" track={btnTrack} />
+          <ButtonWithSound id="bc" track={btnTrack} />
         </div>
       </div>
     </form>
